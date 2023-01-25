@@ -6,7 +6,7 @@ const YIPPIE: &[u8] = include_bytes!("../y.gif");
 #[show_image::main]
 fn main() -> Result<(), Box<dyn std::error::Error>> {
 
-    let image = image::open("y.gif").unwrap();
+    let image = image::load_from_memory(YIPPIE).unwrap();
 
     // Create a window with default options and display the image.
     let window = create_window("yippie", WindowOptions {
